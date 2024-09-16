@@ -41,7 +41,7 @@ class Program
         }
 
         // Core requirement 3: Print the letter grade once
-        Console.WriteLine($"Your grade is: {letter}");
+        // Console.WriteLine($"Your grade is: {letter}");
 
         Console.WriteLine();
 
