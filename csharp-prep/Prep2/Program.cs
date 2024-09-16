@@ -50,7 +50,7 @@ class Program
         }
         else
         {
-            Console.WriteLine("Work Harder! You'll get it next time.");
+            Console.WriteLine("Work Harder! You can do it.");
         }
 
     }
