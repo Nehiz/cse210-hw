@@ -46,7 +46,7 @@ class Program
         //  Core req 2: Determine if the user passed or failed
         if (percentage >= 70)
         {
-            Console.WriteLine("Congratulations! You passed the class.");
+            Console.WriteLine("Congratulations Chap! You passed the class.");
         }
         else
         {
