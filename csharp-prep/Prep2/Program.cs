@@ -21,15 +21,15 @@ class Program
         }
         else if (percentage >= 80)
         {
-             // Console.WriteLine("Your grade is: B");
+            // Console.WriteLine("Your grade is: B");
             letter = "B";
         }
-         else if (percentage >= 70)
+        else if (percentage >= 70)
         {
             // Console.WriteLine("Your grade is: C");
             letter = "C";
         }
-         else if (percentage >= 60)
+        else if (percentage >= 60)
         {
             // Console.WriteLine("Your grade is: D");
             letter = "D";
@@ -41,14 +41,14 @@ class Program
         }
 
         // Core requirement 3: Print the letter grade once
-       Console.WriteLine($"Your grade is: {letter}");
+        Console.WriteLine($"Your grade is: {letter}");
 
-       Console.WriteLine();
+        Console.WriteLine();
 
         //  Core req 2: Determine if the user passed or failed
         if (percentage >= 70)
         {
-            Console.WriteLine("Congratulations Chap! You passed the class.");
+            Console.WriteLine("Good job! You passed the class.");
         }
         else
         {
@@ -58,7 +58,7 @@ class Program
         // Stretch challenge: 
         // stretch 1: Add a "+" or "-" to the grade
         string sign = "";
-        int lastDigit = percentage % 10;  // % operator is to get the remainder of the division (i.e the last digit of the numbers when they are divided by 10)
+        int lastDigit = percentage % 10;  // % operator will get the remainder of the division (i.e the last digit of the numbers when they are divided by 10)
 
         // Only add "+" or "-" for grades B, C, D
         if (letter != "A" && letter != "F")
@@ -74,7 +74,7 @@ class Program
         }
 
         // Stretch 2: Special case for "A" grades, no A+ but allow A-
-        if (letter == "A" && lastDigit <3)
+        if (letter == "A" && lastDigit < 3)
         {
             sign = "-";
         }
