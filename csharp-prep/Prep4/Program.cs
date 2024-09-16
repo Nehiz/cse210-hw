@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Ling;  // for sorting and list operations
+
 
 class Program
 {
     static void Main(string[] args)
     {
-        List<int> numbers = new List>int>();
+        List<int> numbers = new List<int>();
         int number;
 
         Console.WriteLine("Enter a list of numbers, type o when finished. ");
@@ -21,7 +21,7 @@ class Program
             {
                 numbers.Add(number);
             }
-        } while (number != 0)
+        } while (number != 0);
 
         // Core Requirement 1: Calculate sum
         int sum = numbers.Sum();
@@ -33,7 +33,7 @@ class Program
 
         // Core Requirement 3: Find the largest number
         int max = numbers.Max();
-        Console.WriteLine($"The ;argest number is: {max}");
+        Console.WriteLine($"The largest number is: {max}");
 
         //Stretch Challenge 1: Find the smallest positive number
         int smallestPositive = numbers.Where(n => n > 0).Min();
