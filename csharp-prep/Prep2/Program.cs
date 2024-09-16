@@ -40,8 +40,8 @@ class Program
             letter = "F";
         }
 
-        // Core requirement 3: Print letter grade once
-       // Console.WriteLine($"Your grade is: {letter}");
+        // Core requirement 3: Print the letter grade once
+       Console.WriteLine($"Your grade is: {letter}");
 
        Console.WriteLine();
 
