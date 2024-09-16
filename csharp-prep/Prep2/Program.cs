@@ -55,5 +55,38 @@ class Program
             Console.WriteLine("Work Harder! You can do this.");
         }
 
+        // Stretch challenge: 
+        // stretch 1: Add a "+" or "-" to the grade
+        string sign = "";
+        int lastDigit = percentage % 10;  // % operator is to get the remainder of the division (i.e the last digit of the numbers when they are divided by 10)
+
+        // Only add "+" or "-" for grades B, C, D
+        if (letter != "A" && letter != "F")
+        {
+            if (lastDigit >= 7)
+            {
+                sign = "+";
+            }
+            else if (lastDigit < 3)
+            {
+                sign = "-";
+            }
+        }
+
+        // Stretch 2: Special case for "A" grades, no A+ but allow A-
+        if (letter == "A" && lastDigit <3)
+        {
+            sign = "-";
+        }
+
+        // Stretch 3: Special case for "F" grades, no F+ or F-
+        if (letter == "F")
+        {
+            sign = "";
+        }
+
+        // Print the final grade with letter and sign
+        Console.WriteLine($"Your grade is: {letter}{sign}");
+
     }
 }
