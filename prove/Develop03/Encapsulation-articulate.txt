@@ -1,0 +1,51 @@
+ENCAPSULATION - ARTICULATE
+
+
+Meaning of Encapsulation
+Encapsulation is a fundamental principle in object-oriented programming that refers to 
+the practice of enclosing the details of an object’s data and behaviours within a single 
+unit or class, restricting direct access to that data from the outside the class. 
+This helps to manage complexity by controlling how the data is accessed and modified, and 
+preventing accidental modification of the data. In encapsulation, interactions with the 
+data are done through methods.
+
+A benefit of Encapsulation
+A key benefit of encapsulation is that it improves data security and integrity by preventing 
+outside code from altering internal data directly. By exposing only the information that 
+is necessary through the use of public methods, encapsulation helps in maintaining control 
+over how program data are accessed and modified.
+
+Application of Encapsulation
+An application of encapsulation can be found in situations where sensitive information must 
+be protected. For example, in banking software, account details such as balance should not 
+be directly accessible or modified by external functions. Encapsulation ensures that only 
+certain operations, such as deposit or withdrawal, can alter the balance, with the logic 
+controlled internally.
+
+
+Code example of Encapsulation 
+In my program, I used encapsulation in the Entry class. An example is shown below:
+
+Public class Entry
+{
+    private string _content;
+    private DateTime _data;
+
+    public Entry(string content, DataTime date)
+    {
+        _content = content;
+        _date = date;
+    }
+
+    Public string GetEntryDetails()
+    {
+        Return $”{_date.ToShortDateString()}: {_content};
+    }
+}
+
+In the code above, the Entry class encapsulates the data _content and _date. 
+These fields are private and cannot be accessed directly from outside the class. 
+An external object in this case the GetEntryDetails() method is used to get 
+the details of a journal entry. This method returns the information in a controlled 
+manner, ensuring the internal representation of _content and _date remains 
+hidden and protected from unintended changes. 
