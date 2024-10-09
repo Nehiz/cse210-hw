@@ -7,27 +7,28 @@ public class Word
     // Constructor
     public Word(string text)
     {
-        // initialization logic will go here
+        _text = text;
+        _isHidden = false;
     }
 
     // Method stub
     public void Hide()
     {
-        // Logic will go here
+        _isHidden = true;
     }
 
     public void show()
     {
-        // Logic will go here
+        _isHidden = false;
     }
 
     public bool IsHidden()
     {
-        return false; // Placeholder return
+        return _isHidden;
     }
 
     public string GetDisplayText()
     {
-        return ""; // Placeholder return
+        return _isHidden ? "_ _ _ _" : _text;
     }
 }
