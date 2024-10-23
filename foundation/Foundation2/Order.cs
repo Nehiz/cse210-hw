@@ -45,7 +45,7 @@ class Order
         string packLabel =  "Packing Label:\n";
         foreach (Product product in products)
         {
-            GetPackingLabel += $"{product.GetName()} ({product.GetProductId()})\n";
+            packLabel += $"- Product: {product.GetName()}, ID: {product.GetProductId()}\n";
         }
         return packLabel;
     }
@@ -54,7 +54,7 @@ class Order
     public string GetShippingLabel()
     {
         string shippingLabel = "Shipping Label:\n";
-        shippingLabel += $"{customer.GetAddress().GetFullAddress()\n";
+        shippingLabel += $"{customer.GetName()}\n{customer.GetAddress().GetFullAddress()}\n";
         
         return shippingLabel;
     }

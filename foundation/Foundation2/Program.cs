@@ -1,6 +1,4 @@
 using System;
-using System.Net.Http.Headers;
-using System.Net.Sockets;
 
 class Program
 {
@@ -33,13 +31,13 @@ class Program
         // Display packing and shipping Labels and total cost for order1
         Console.WriteLine(order1.GetPackingLabel());
         Console.WriteLine(order1.GetShippingLabel());
-        Console.WriteLine($"Total cost: {order1.GetTotalCost()}");
+        Console.WriteLine($"Total cost: {order1.GetTotalPrice()}");
         Console.WriteLine("\n---------------------\n");
 
         // Display packing and shipping Labels and total cost for order2
         Console.WriteLine(order2.GetPackingLabel());
         Console.WriteLine(order2.GetShippingLabel());
-        Console.WriteLine($"Total cost: {order2.GetTotalCost()}");
+        Console.WriteLine($"Total cost: {order2.GetTotalPrice()}");
     
     }
 }

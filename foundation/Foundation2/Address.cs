@@ -20,7 +20,7 @@ class Address
     // Returns true if the address is in the USA
     public bool IsInUSA()
     {
-        return country.Tolower() == "usa";
+        return country.ToLower() == "usa";
     }
 
     // TReturns the full address as a string

@@ -1,9 +1,9 @@
 class Customer
 {
     private string name;
-    private string address;
+    private Address address;
 
-    public Customer(string name, string address)
+    public Customer(string name, Address address)
     {
         this.name = name;
         this.address = address;
@@ -12,7 +12,7 @@ class Customer
     // Returns true if the address is in the USA
     public bool LivesInUSA()
     {
-        return adderess.IsInUSA();
+        return address.IsInUSA();
     }
 
     // Returns the customer's name

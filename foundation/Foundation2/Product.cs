@@ -8,7 +8,7 @@ class Product
     public Product(string name, string productId, double price, int quantity)
     {
         this.name = name;
-        this.produictId = productId;
+        this.productId = productId;
         this.price = price;
         this.quantity = quantity;
     }
