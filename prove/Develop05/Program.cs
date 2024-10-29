@@ -76,6 +76,11 @@ class Program
 }
 
 
-// Extra features that were added to the program beyond the core requirement to exceed expectation:
+// Some extra features that were added to the program beyond the core requirement to exceed expectation:
 
-//
+// 1. Spinner and Countdown Functions - The ShowSpinner (int seconds) function displays a spinner animation for a specified number of seconds, making the app feels more interactive and visually appealing.
+// 2. Activity Duration Control - DateTime logic was added to track the start and end times of each activity, allowing for precise control over the duration.
+// 3. Custom Duration Option - The program now allows users to choose a custom duration for each activity.
+// 4. Activity Selection - The program now provides a menu to select different activities, such as Breathing, Listing, and Reflecting.  
+// 5. Reflecting Activity with Controlled Prompt delay - The ReflectingActivity prompts are displayed with a delay in between to allow users time to think.
+// 6. Continue or Exit Option - The program now allows users to choose to continue or exit the program after each activity.
