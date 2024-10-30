@@ -33,7 +33,7 @@ class ListingActivity : Activity
         Console.WriteLine("Take a moment to think about the prompt.");
         ShowCountdown(5);
 
-        Console.WriteLine("Now, please start listing items. Type done to finish early: ");
+        Console.WriteLine("Please start listing items. Type done to finish early: ");
 
         // Allow the user to list items until time is up
         // DateTime endTime = DateTime.Now.AddSeconds(Duration);
@@ -82,4 +82,4 @@ class ListingActivity : Activity
         DisplayEndingMessage(activityStart);
 
     }
-}
+} 

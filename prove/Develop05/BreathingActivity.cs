@@ -18,19 +18,43 @@ class BreathingActivity : Activity
         // Perform the breathing exercise until specific time if reached
         while (DateTime.Now < endTime)
         {
+            // Calculate the remaining time to avoid exceeding the set duration
+            TimeSpan timeRemaining = endTime - DateTime.Now;
+
+            if (timeRemaining.TotalSeconds <= 2) break;
             Console.WriteLine("Breathe in...");
-            ShowSpinner(2);
             Thread.Sleep(2000);
 
-            Console.WriteLine("Now breathe out...");
-            ShowSpinner(2);
+            
+            timeRemaining = endTime - DateTime.Now;
+            if (timeRemaining.TotalSeconds <= 2) break;
+            Console.Clear();
+            Console.WriteLine("Breathe in...");
             Thread.Sleep(2000);
+            ShowExpandingText("Breathe out", 2000);
+            
+            timeRemaining = endTime - DateTime.Now;
+            if (timeRemaining.TotalSeconds <= 2) break;
+            Console.Clear();
+            Console.WriteLine("Now breathe out", 2000);
+            Thread.Sleep(2000);
+            ShowExpandingText("Breathe in", 2000);
         }
-        // DateTime endTime = DateTime.Now;
-        TimeSpan duration = endTime - startTime;
+        
+        // Show completion message
+        DisplayEndingMessage(startTime);
+    }
 
-        // Show completion message with the actual duration
-        Console.WriteLine($"You have completed the Breathing Activity for {duration.TotalSeconds:F2} seconds!");
+    // Helper method for expanding text
+    private void ShowExpandingText(string message, int totalTime)
+    {
+        int delay = totalTime / message.Length;
+        foreach (char c in message)
+        {
+            Console.Write(c);
+            Thread.Sleep(delay);
+        }
+        Console.WriteLine();
     }
     
 }

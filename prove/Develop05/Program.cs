@@ -7,11 +7,17 @@ class Program
     const string BreathingActivityKey = "1";
     const string ListingActivityKey = "2";
     const string ReflectingActivityKey = "3";
-    const string ExitActivityKey = "4";
+    const string MeditationActivityKey = "4";
+    //const string SummaryActivityKey = "5"; 
+    const string ExitActivityKey = "0";
 
     static void Main(string[] args)
     {
         bool isRunning = true;
+
+        // Create an instance of SummaryActivity to log all completed activities
+        SummaryActivity summaryActivity = new SummaryActivity(0);
+
         while (isRunning)
         {
             Console.Clear();
@@ -25,19 +31,21 @@ class Program
             {
                 {BreathingActivityKey, (duration) => new BreathingActivity(duration)},
                 {ListingActivityKey, (duration) => new ListingActivity(duration)}, 
-                {ReflectingActivityKey, (duration) => new ReflectingActivity(duration)}
+                {ReflectingActivityKey, (duration) => new ReflectingActivity(duration)},
+                {MeditationActivityKey, (duration) => new MeditationActivity(duration)}
             };
 
             // Display the activity options with names
             Console.WriteLine("1. Breathing Activity");
             Console.WriteLine("2. Listing Activity");
             Console.WriteLine("3. Reflecting Activity");
-            Console.WriteLine("4. Exit"); 
+            Console.WriteLine("4. Meditation Activity");
+            //Console.WriteLine("5. Daily Summary"); 
+            Console.WriteLine("0. Exit"); 
            
             
             Console.Write("Enter the number of the activity you want to start: ");
             string choice = Console.ReadLine();
-            // Activity activity = null; // Initialize activity to null
 
             // Request user input for custom duration if a valid choice is made
             if (activities.ContainsKey(choice))
@@ -55,10 +63,10 @@ class Program
 
                 // Inform user that the activity has been completed
                 // Console.WriteLine("Activity completed. Thank you for using the Mindfulness App!");
-                Console.WriteLine("Press any key to continue...");
+                Console.WriteLine("Activity completed! Press any key to continue...");
                 Console.ReadKey();
             }
-            else if (choice == "4")
+            else if (choice == ExitActivityKey)
             {
                 isRunning = false;
                 Console.WriteLine("Exiting program...Goodbye!");
@@ -84,14 +92,12 @@ class Program
             }
         }
     }
-}
+} 
 
-
-// Some extra features that were added to the program beyond the core requirement to exceed expectation:
-
-// 1. Spinner and Countdown Functions - The ShowSpinner (int seconds) function displays a spinner animation for a specified number of seconds, making the app feels more interactive and visually appealing.
-// 2. Activity Duration Control - DateTime logic was added to track the start and end times of each activity, allowing for precise control over the duration.
-// 3. Custom Duration Option - The program now allows users to choose a custom duration for each activity.
-// 4. Activity Selection - The program now provides a menu to select different activities, such as Breathing, Listing, and Reflecting.  
-// 5. Reflecting Activity with Controlled Prompt delay - The ReflectingActivity prompts are displayed with a delay in between to allow users time to think.
-// 6. Continue or Exit Option - The program now allows users to choose to continue or exit the program after each activity.
+/* extra logics and functions added to exceed expectations
+1. Added logic to enable the DisplayEndingMessage method in the activity class to write log entry to a file 
+named activity_log.txt everytime an activity completes. This provides users with a record of what they have done.
+2. Added an extra activity 'Meditation Activity' to guide users through a time meditation.
+3. Added a modular activity dictionary in the main program to manage activities and user selections to allow easy modification of functions.
+4. Added logic to reduce the error in timing the duration, ensuring the program starts counting after the coundown.
+*/

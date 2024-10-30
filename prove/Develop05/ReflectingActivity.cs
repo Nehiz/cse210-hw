@@ -31,23 +31,31 @@ class ReflectingActivity : Activity
         };
     }
 
+    private List<string> _remainingQuestions;
+
     public override void Run()
     {
         DisplayStartingMessage();
-
-        // Select a random prompt
         string prompt = _prompts[_random.Next(_prompts.Count)];
         Console.WriteLine(prompt);
         ShowSpinner(5);
 
         DateTime startTime = DateTime.Now;
+        _remainingQuestions = new List<string>(_questions); // Reset questions for each session
+        
         while ((DateTime.Now - startTime).TotalSeconds < Duration)
         {
-            // Select a random question from list
-            string question = _questions[_random.Next(_questions.Count)];
-            Console.WriteLine(question);
+            if (_remainingQuestions.Count == 0)
+            {
+                _remainingQuestions = new List<string>(_questions);
+            }
 
-            // Wait for a few seconds before showing the next question
+            int index = _random.Next(_remainingQuestions.Count);
+            string question = _remainingQuestions[index];
+            _remainingQuestions.RemoveAt(index);
+
+            
+            Console.WriteLine(question);
             ShowSpinner(5);
 
             // Check if we've reached the duration before displaying the next question

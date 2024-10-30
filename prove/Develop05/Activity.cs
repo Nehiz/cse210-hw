@@ -36,16 +36,19 @@ abstract class Activity
         // Countdown before activity begins
         Console.WriteLine("Get ready to start...");
         ShowCountdown(5); // countdown from 5 seconds
-        
-        Console.WriteLine("Press Enter to start.");
-        Console.ReadLine();
+        Console.Clear(); // clear screen after countdown to focus on activity
     }
 
     public void DisplayEndingMessage(DateTime startTime)
     {
         TimeSpan duration = DateTime.Now - startTime; // Calculate duration
-        Console.WriteLine($"Good Job! You have completed the {_name} for {duration.TotalSeconds:F2} seconds!");
+        Console.WriteLine($"You have completed the {_name} for {duration.TotalSeconds:F2} seconds!");
         Thread.Sleep(2000); // Wait for 2 second before ending the activity
+
+        // Append activity log to file
+        string logEntry = $"{DateTime.Now}: Completed {_name} for {duration.TotalSeconds:F2} seconds.\n";
+        System.IO.File.AppendAllText("activity_log.txt", logEntry);
+        Console.WriteLine("Activity log saved to activity_log.txt.");
     }
 
     public void ShowSpinner(int seconds)
@@ -75,5 +78,3 @@ abstract class Activity
 
     public abstract void Run();
 }
-
-
