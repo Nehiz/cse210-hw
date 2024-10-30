@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
 class BreathingActivity : Activity
 {
     public BreathingActivity(int duration)
@@ -5,29 +8,29 @@ class BreathingActivity : Activity
 
     public override void Run()
     {
+        // Display the starting message and countdown
         DisplayStartingMessage();
-        /*int cycles = _duration / 6;  // each cycle stays for appropriately 6 seconds (3 for inhale, 3 for exhale)
-        for (int i = 0; i < _duration; i++)
-       
-        for (int i = 0; i < cycles; i++)
-        {
-            Console.WriteLine("Breathe in...");
-            ShowSpinner(3);
-            Console.WriteLine("Now breathe out...");
-            ShowSpinner(3);
-        }
-        DisplayEndingMessage(); */
 
+        // Start timing the activity
         DateTime startTime = DateTime.Now;
-        while ((DateTime.Now - startTime).TotalSeconds < _duration)
+        DateTime endTime = startTime.AddSeconds(Duration);
+
+        // Perform the breathing exercise until specific time if reached
+        while (DateTime.Now < endTime)
         {
             Console.WriteLine("Breathe in...");
-            ShowSpinner(3);
-            Console.WriteLine("Now breathe out...");
-            ShowSpinner(3);
-        }
+            ShowSpinner(2);
+            Thread.Sleep(2000);
 
-        DisplayEndingMessage();
+            Console.WriteLine("Now breathe out...");
+            ShowSpinner(2);
+            Thread.Sleep(2000);
+        }
+        // DateTime endTime = DateTime.Now;
+        TimeSpan duration = endTime - startTime;
+
+        // Show completion message with the actual duration
+        Console.WriteLine($"You have completed the Breathing Activity for {duration.TotalSeconds:F2} seconds!");
     }
     
 }

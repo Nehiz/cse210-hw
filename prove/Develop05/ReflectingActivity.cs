@@ -4,15 +4,30 @@ using System.Threading;
 class ReflectingActivity : Activity
 {
     private List<string> _prompts;
+    private List<string> _questions;
 
-    public ReflectingActivity(int duration) : base("Reflecting Activity", "This activity will help you reflect on the good things in your life.", duration)
+    public ReflectingActivity(int duration) : base("Reflecting Activity",
+        "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in your daily life.", duration)
     {
         _prompts = new List<string>
         {
-            "Think of a time you overcame a challenge.",
-            "Remember a moment when you helped someone.",
+            "Think of a time when you stood up for someone.",
+            "Think of a time when you helped someone in need.",
             "Think of a time when you did something really difficult.",
-            "Reflect on a personal achievement."
+            "Think of a time when you did something truly selfless."
+        };
+
+        _questions = new List<string>
+        {
+            "Why was this experience meaningful to you?",
+            "Have you ever done anything like this before?",
+            "How did you get started?",
+            "How did you feel when it was complete?",
+            "What made this experience meaningful to you?",
+            "What was your favorite thing about this experience?",
+            "What could you learn from this experience that applies to other situations?",
+            "What did you learn about yourself through this experience?",
+            "How can you keep this experience in mind in the future?"
         };
     }
 
@@ -20,68 +35,27 @@ class ReflectingActivity : Activity
     {
         DisplayStartingMessage();
 
+        // Select a random prompt
+        string prompt = _prompts[_random.Next(_prompts.Count)];
+        Console.WriteLine(prompt);
+        ShowSpinner(5);
+
         DateTime startTime = DateTime.Now;
-        int promptIndex = 0;
-
-        while ((DateTime.Now - startTime).TotalSeconds < _duration && promptIndex < _prompts.Count)
+        while ((DateTime.Now - startTime).TotalSeconds < Duration)
         {
-            Console.WriteLine(_prompts[promptIndex]);
-            promptIndex = (promptIndex + 1) % _prompts.Count;
+            // Select a random question from list
+            string question = _questions[_random.Next(_questions.Count)];
+            Console.WriteLine(question);
 
-            // Wait for a few seconds before showing the next prompt
-            ShowSpinner(10);
+            // Wait for a few seconds before showing the next question
+            ShowSpinner(5);
+
+            // Check if we've reached the duration before displaying the next question
+            if ((DateTime.Now - startTime).TotalSeconds >= Duration)
+            break;
+        
         }
 
-        DisplayEndingMessage();
+        DisplayEndingMessage(startTime);
     }
 }
-/*
-    private List<string> _questions = new List<string>
-    {
-        "Why was this experience meaningful?",
-        "What did you learn about yourself?",
-        "How could you keep this experience in mind in the future?",
-        "What made this time different than other times in your life?",
-    };
-
-    public ReflectingActivity(int duration)
-        : base("Reflecting Activity", "This activity will help you reflect on the good things in your life.", duration) { }
-    private string GetRandomPrompt()
-    {
-        int index = _random.Next(_prompts.Count);
-        return _prompts[index];
-    }
-
-    // Helper method to shuffle a list 
-    private static void shuffle <T>(List<T> list)
-    {
-        int n = list.Count;
-        for (int i = n - 1; i > 0; i--)
-        {
-            int j = _random.Next(i + 1);
-            (list[i], list[j]) = (list[j], list[i]);
-        }
-    }
-    
-    private void DisplayQuestions()
-    {
-        Console.WriteLine(GetRandomPrompt());
-
-        // Shuffle questions for randomized order each time
-        shuffle(_questions);
-
-        // Display shuffled questions
-        foreach (string question in _questions)
-        {
-            Console.WriteLine(question);
-            ShowSpinner(2);
-        }
-    }
-
-    public override void Run()
-    {
-        DisplayStartingMessage();
-        DisplayQuestions();
-        DisplayEndingMessage();
-    }
-} */
