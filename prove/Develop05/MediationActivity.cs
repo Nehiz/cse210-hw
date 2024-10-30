@@ -20,8 +20,8 @@ class MeditationActivity : Activity
         
         while (DateTime.Now < endTime)
         {
-            // Calculate the remaining time to avoid exceeding the set duration
-            TimeSpan timeRemaining = endTime - DateTime.Now;
+            
+            TimeSpan timeRemaining = endTime - DateTime.Now;  // Calculate the remaining time to avoid exceeding the set duration
             
             if (timeRemaining.TotalSeconds <= 2) break;
             Console.WriteLine("Take a breath in...");
@@ -43,8 +43,8 @@ class MeditationActivity : Activity
             Thread.Sleep(5000);
         }
 
-        // Show completion message
-        Console.WriteLine("You have completed the Meditation Activity!");
+        
+        Console.WriteLine("You have completed the Meditation Activity!");  // Show completion message
         DisplayEndingMessage(startTime);
     }
 }

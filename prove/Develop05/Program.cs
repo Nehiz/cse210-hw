@@ -8,15 +8,14 @@ class Program
     const string ListingActivityKey = "2";
     const string ReflectingActivityKey = "3";
     const string MeditationActivityKey = "4";
-    //const string SummaryActivityKey = "5"; 
     const string ExitActivityKey = "0";
 
     static void Main(string[] args)
     {
         bool isRunning = true;
 
-        // Create an instance of SummaryActivity to log all completed activities
-        SummaryActivity summaryActivity = new SummaryActivity(0);
+        
+        SummaryActivity summaryActivity = new SummaryActivity(0);  // Create an instance of SummaryActivity to log all completed activities
 
         while (isRunning)
         {
@@ -26,8 +25,8 @@ class Program
             Console.WriteLine("Choose an activity from the list below:");
             Thread.Sleep(2000);
 
-            // Define the activity options in a dictionary for easier management
-            var activities = new Dictionary<string, Func<int, Activity>>
+            
+            var activities = new Dictionary<string, Func<int, Activity>>  // Define the activity options in a dictionary for easier management
             {
                 {BreathingActivityKey, (duration) => new BreathingActivity(duration)},
                 {ListingActivityKey, (duration) => new ListingActivity(duration)}, 
@@ -35,20 +34,19 @@ class Program
                 {MeditationActivityKey, (duration) => new MeditationActivity(duration)}
             };
 
-            // Display the activity options with names
-            Console.WriteLine("1. Breathing Activity");
+           
+            Console.WriteLine("1. Breathing Activity");   // Display the activity options with names
             Console.WriteLine("2. Listing Activity");
             Console.WriteLine("3. Reflecting Activity");
             Console.WriteLine("4. Meditation Activity");
-            //Console.WriteLine("5. Daily Summary"); 
             Console.WriteLine("0. Exit"); 
            
             
             Console.Write("Enter the number of the activity you want to start: ");
             string choice = Console.ReadLine();
 
-            // Request user input for custom duration if a valid choice is made
-            if (activities.ContainsKey(choice))
+            
+            if (activities.ContainsKey(choice))  // Request user input for custom duration if a valid choice is made
             {
                 Console.Write("How long, in seconds, would you like for your session? ");
                 int duration;
@@ -57,12 +55,11 @@ class Program
                     Console.Write("Please enter  duration as a positive number: ");
                 }
     
-                // Instantiate the activity using the dictionary
-                Activity selectedActivity = activities[choice](duration);
+                
+                Activity selectedActivity = activities[choice](duration); // Instantiate the activity using the dictionary
                 selectedActivity.Run();
 
                 // Inform user that the activity has been completed
-                // Console.WriteLine("Activity completed. Thank you for using the Mindfulness App!");
                 Console.WriteLine("Activity completed! Press any key to continue...");
                 Console.ReadKey();
             }

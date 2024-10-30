@@ -30,8 +30,8 @@ class SummaryActivity : Activity
         LogActivity("Listing Activity");
         LogActivity("Reflecting Activity");
 
-        // Display the summary of activities
-        Console.WriteLine("\n---Activity Summary: ");
+       
+        Console.WriteLine("\n---Activity Summary: ");   // Display the summary of activities
         foreach (var kvp in activityCounts)
         {
             Console.WriteLine($"{kvp.Key}: {kvp.Value} times");

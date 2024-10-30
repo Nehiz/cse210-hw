@@ -8,18 +8,18 @@ class BreathingActivity : Activity
 
     public override void Run()
     {
-        // Display the starting message and countdown
-        DisplayStartingMessage();
+        
+        DisplayStartingMessage();  // Display the starting message and countdown
 
-        // Start timing the activity
-        DateTime startTime = DateTime.Now;
+        
+        DateTime startTime = DateTime.Now;  // Start timing the activity
         DateTime endTime = startTime.AddSeconds(Duration);
 
-        // Perform the breathing exercise until specific time if reached
-        while (DateTime.Now < endTime)
+        
+        while (DateTime.Now < endTime)  // Perform the breathing exercise until specific time if reached
         {
-            // Calculate the remaining time to avoid exceeding the set duration
-            TimeSpan timeRemaining = endTime - DateTime.Now;
+            
+            TimeSpan timeRemaining = endTime - DateTime.Now;  // Calculate the remaining time to avoid exceeding the set duration
 
             if (timeRemaining.TotalSeconds <= 2) break;
             Console.WriteLine("Breathe in...");
@@ -41,12 +41,12 @@ class BreathingActivity : Activity
             ShowExpandingText("Breathe in", 2000);
         }
         
-        // Show completion message
-        DisplayEndingMessage(startTime);
+        
+        DisplayEndingMessage(startTime);  // Show completion message
     }
 
-    // Helper method for expanding text
-    private void ShowExpandingText(string message, int totalTime)
+   
+    private void ShowExpandingText(string message, int totalTime)   // Helper method for expanding text
     {
         int delay = totalTime / message.Length;
         foreach (char c in message)

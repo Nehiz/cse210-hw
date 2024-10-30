@@ -36,7 +36,7 @@ class ListingActivity : Activity
         Console.WriteLine("Please start listing items. Type done to finish early: ");
 
         // Allow the user to list items until time is up
-        // DateTime endTime = DateTime.Now.AddSeconds(Duration);
+     
         while (DateTime.Now < endTime)
         {
             string input = Console.ReadLine();
