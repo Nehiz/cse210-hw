@@ -1,0 +1,5 @@
+1900
+SimpleGoal|Marathon|Run a marathon|1000|True
+EternalGoal|Scripture Reading|Read scripture|100
+ChecklistGoal|Temple Visit|Attend the temple|50|0|10|0
+ChecklistGoal|Friend Visit|Visit my friend|200|2|2|200
