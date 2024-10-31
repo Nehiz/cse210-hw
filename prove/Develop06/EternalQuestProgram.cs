@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
 public class EternalQuestProgram
 {
     private List<Goal> _goals = new List<Goal>();
@@ -42,6 +46,31 @@ public class EternalQuestProgram
         Console.WriteLine("Goal added successfully!");
     }
 
+    public void DeleteGoal()
+    {
+        ShowGoals();
+        Console.WriteLine("Enter the index of the goal to delete:");
+        
+        if (int.TryParse(Console.ReadLine(), out int index) && index >= 0 && index < _goals.Count)
+        {
+            Console.WriteLine($"Are you sure you want to delete the goal: {_goals[index].GetStringRepresentation()}? (yes/no)");
+            string confirmation = Console.ReadLine();
+            if (confirmation.ToLower() == "yes")
+            {
+                _goals.RemoveAt(index);
+                Console.WriteLine("Goal deleted successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Goal deletion canceled.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid index. No goal deleted.");
+        }
+    }
+
     public void RecordEvent()
     {
         Console.WriteLine("Enter goal name to record an event:");
@@ -81,9 +110,9 @@ public class EternalQuestProgram
     {
         Console.Clear(); // Clears the console before displaying goals
         Console.WriteLine("Goals:");
-        foreach (Goal goal in _goals)
+        for (int i = 0; i < _goals.Count; i++)
         {
-            Console.WriteLine(goal.GetStringRepresentation());
+            Console.WriteLine($"{i}: {_goals[i].GetStringRepresentation()}");
         }
         Console.WriteLine($"Total score: {_score}");
     }
