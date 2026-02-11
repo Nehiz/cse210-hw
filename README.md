@@ -1,3 +1,8 @@
+# ⚠️ Archived - Moved to Monorepo
+
+This project is now part of the [BYU-Pathway Coursework](https://github.com/Nehiz/byu-pathway-coursework) monorepo.
+
+
 # cse210-ww-student-template
 My name is NEHIKHARE EFEHI
 This is the starter code for students in the worldwide content version of CSE 210.
